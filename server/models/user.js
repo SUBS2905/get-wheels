@@ -1,20 +1,21 @@
 const mongoose = require('mongoose');
 
-
 const userSchema = new mongoose.Schema({
-    firstName: {
+    user_token: {
         type: String,
         required: true,
+    },
+    firstName: {
+        type: String,
         trim: true,
     },
     lastName: {
         type: String,
-        required: true,
         trim: true,
     },
     username: {
         type: String,
-        required: true,
+        default: 'unknown',
         trim: true,
         unique: true,
         index: true,
@@ -26,15 +27,10 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true,
         unique: true,
         trim: true,
         unique: true,
         lowercase: true
-    },
-    hash_password: {
-        type: String,
-        required: true,
     },
     profilePicture: {
         type: String,

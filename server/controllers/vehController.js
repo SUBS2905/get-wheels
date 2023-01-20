@@ -27,7 +27,7 @@ const addVeh = (req, res) => {
         ownerInfo: ownerInfo
     });
     newVehicle.save((error, _veh) => {
-        if (error) return res.status(400).json({ msg: `While saving new vehicle omething went wrong`, error });
+        if (error) return res.status(400).json({ msg: `While saving new vehicle something went wrong`, error });
         if (_veh) return res.status(201).json({ _veh, files: req.files });
     })
 }
