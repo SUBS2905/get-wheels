@@ -8,7 +8,7 @@ const userRouter = require('./routes/authRoutes')
 dotenv.config();
 
 //localhost url
-mongoose.connect('mongodb+srv://webconnect:webconnect123@cluster0.tnchb.mongodb.net/getWheels').then(()=>{
+mongoose.connect('mongodb://127.0.0.1:27017').then(()=>{
 }).catch((err)=>{console.log(err)});
 
 
