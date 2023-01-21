@@ -3,10 +3,53 @@ const User = require('../models/user');
 const bcrypt = require("bcrypt");
 const otpGenerator = require("otp-generator");
 const jwt = require("jsonwebtoken");
-
 const JWT_SECRET = "some super secret key here...";
 
+// NOTE: 3 min se pahele retry otp req kiya that has to be handled....
 
+const signIn = async (req, res)=>{
+    const number = req.body.contactNumber;
+
+    User.find({contactNumber: number}, async function (err, docs) {
+        if (docs.length !== 0) {
+
+            // generate otp for new user
+            const OTP = otpGenerator.generate(6, {
+                digits: true,
+                upperCaseAlphabets: false,
+                specialChars: false,
+                lowerCaseAlphabets: false,
+            });
+        
+            const otp = {
+                number: number,
+                otp: OTP,
+            };
+
+            console.log(otp);
+
+            console.log("Generated otp for signin: ", otp);
+            //encrypting the otp and then saving to Otp_table
+            const salt = await bcrypt.genSalt(10);
+            otp.otp = await bcrypt.hash(otp.otp, salt);
+        
+            const newUserLogin = new OtpAuth ({
+                mobileNumber: otp.number,
+                otp: otp.otp
+            });
+
+            newUserLogin.save((error, success) => {
+                if(error) console.log(error);
+                else console.log("Saved::otp-temporarily::ready for validation");
+            })
+        
+            return res.status(200).send("Otp sent successfully!");
+        }
+        else {
+            return res.status(400).send("User not registered.");
+        }
+    })
+}
 
 
 const signUp = async (req, res)=>{
@@ -26,18 +69,16 @@ const signUp = async (req, res)=>{
                 lowerCaseAlphabets: false,
             });
         
-            console.log("Generated OTP: ", OTP);
             const otp = {
                 number: number,
                 otp: OTP,
             };
-            console.log("Before encryption: ", otp);
-          
+            console.log("Before hashing: ", otp);
+
+            
             //encrypting the otp and then saving to Otp_table
             const salt = await bcrypt.genSalt(10);
             otp.otp = await bcrypt.hash(otp.otp, salt);
-        
-            console.log("After encryption: ", otp);
         
             const newUserLogin = new OtpAuth ({
                 mobileNumber: otp.number,
@@ -50,6 +91,31 @@ const signUp = async (req, res)=>{
             })
         
             return res.status(200).send("Otp sent successfully!");
+        }
+    })
+}
+
+const verifyLogin = async (req, res) => {
+    const number = req.body.contactNumber;
+    const inputOtp = req.body.otp;
+
+    OtpAuth.find({mobileNumber: number}, async function (err, docs) {
+        if(docs.length === 0) {
+            return res.status(400).send("You used an expired OTP!");
+        }
+        else {
+            console.log(docs[0].mobileNumber);
+            console.log(docs[0].otp);
+            const generatedOtp = docs[0].otp;
+            
+            const validUser = await bcrypt.compare(inputOtp, generatedOtp);
+
+            if(number === docs[0].mobileNumber && validUser) {
+                return res.status(200).send("Success ready to go.");
+            }
+            else {
+                return res.status(406).send("Wrong OTP");
+            }
         }
     })
 }
@@ -117,5 +183,7 @@ const UserProfile = (req, res) => {
 module.exports = {
     signUp,
     verifyOtp,
-    UserProfile
+    UserProfile,
+    signIn,
+    verifyLogin
 }
