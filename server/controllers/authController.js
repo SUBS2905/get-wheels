@@ -94,7 +94,28 @@ const verifyOtp = async (req, res) => {
     }) 
 }
 
+
+
+const UserProfile = (req, res) => {
+    const { userId } = req.params;
+    if (userId) {
+        User.findById({ _id: userId })
+            .exec((error, _user) => {
+                if (error) return res.status(404).json({ msg: `Something went wrong`, error });
+                if (_user) {
+                    const { _id, fullName, firstName, lastName, profilePicture, email, role, username, contactNumber, createdAt } = _user;
+                    return res.status(200).json({
+                        user: { _id, fullName, firstName, lastName, profilePicture, email, role, username, contactNumber, createdAt }
+                    });
+                }
+            })
+    } else {
+        return res.status(404).json({ msg: `User dosen't exits` });
+    }
+}
+
 module.exports = {
     signUp,
-    verifyOtp
+    verifyOtp,
+    UserProfile
 }
