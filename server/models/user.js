@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
     user_token: {
         type: String,
         required: true,
+        unique: true
     },
     firstName: {
         type: String,
@@ -16,9 +17,6 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         default: 'unknown',
-        trim: true,
-        unique: true,
-        index: true,
         lowercase: true
     },
     role: {
@@ -27,7 +25,6 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        unique: true,
         trim: true,
         unique: true,
         lowercase: true

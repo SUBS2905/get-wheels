@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const cors = require("cors");
 const dotenv = require('dotenv');
 const userRouter = require('./routes/authRoutes')
+const sessionRouter = require('./routes/sessionRoutes')
+const cookieParser = require('cookie-parser');
 
 dotenv.config();
 
@@ -18,16 +20,16 @@ require('./models/user')
 require('./models/vehicle')
 require('./models/vehicleDeal')
 
-
+app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
 
 app.use('/user', userRouter);
+app.use('/session', sessionRouter);
 
 app.get("/", (req, res)=>{
     res.send("Get Wheels services API.")
 })
-
 
 app.listen(process.env.PORT || 5000,()=>{
     console.log("Server Running🚀: http://localhost:5000/");

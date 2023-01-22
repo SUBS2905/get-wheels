@@ -26,8 +26,6 @@ const signIn = async (req, res)=>{
                 otp: OTP,
             };
 
-            console.log(otp);
-
             console.log("Generated otp for signin: ", otp);
             //encrypting the otp and then saving to Otp_table
             const salt = await bcrypt.genSalt(10);
@@ -43,10 +41,10 @@ const signIn = async (req, res)=>{
                 else console.log("Saved::otp-temporarily::ready for validation");
             })
         
-            return res.status(200).send("Otp sent successfully!");
+            return res.status(200).send({msg: "Otp sent successfully!"});
         }
         else {
-            return res.status(400).send("User not registered.");
+            return res.status(400).send({msg: "User not registered."});
         }
     })
 }
@@ -58,7 +56,7 @@ const signUp = async (req, res)=>{
     //validating whether user already exists or not
     User.find({contactNumber: number}, async function (err, docs) {
         if (docs.length !== 0) {
-            return res.status(400).send("user already registered.");
+            return res.status(400).send({msg: "user already registered"});
         }
         else {
             // generate otp for new user
@@ -90,7 +88,7 @@ const signUp = async (req, res)=>{
                 else console.log("Saved::otp::ready for validation");
             })
         
-            return res.status(200).send("Otp sent successfully!");
+            return res.status(200).send({msg: "Otp sent successfully"});
         }
     })
 }
@@ -101,20 +99,23 @@ const verifyLogin = async (req, res) => {
 
     OtpAuth.find({mobileNumber: number}, async function (err, docs) {
         if(docs.length === 0) {
-            return res.status(400).send("You used an expired OTP!");
+            return res.status(400).send( {msg: "You used an expired OTP"});
         }
         else {
-            console.log(docs[0].mobileNumber);
-            console.log(docs[0].otp);
             const generatedOtp = docs[0].otp;
             
             const validUser = await bcrypt.compare(inputOtp, generatedOtp);
 
             if(number === docs[0].mobileNumber && validUser) {
-                return res.status(200).send("Success ready to go.");
+                User.find({contactNumber: number}, async function (err, user) {
+                    res.cookie("user_token", user[0].user_token, {
+                        expires: new Date(Date.now() + 172800000), //expire in 2 days
+                        httpOnly: true
+                    }).send({msg: `Success signin`, cookie: `updated`})
+                })
             }
             else {
-                return res.status(406).send("Wrong OTP");
+                return res.status(406).send({msg: `wrong otp`});
             }
         }
     })
@@ -131,8 +132,6 @@ const verifyOtp = async (req, res) => {
             return res.status(400).send("You used an expired OTP!");
         }
         else {
-            console.log(docs[0].mobileNumber);
-            console.log(docs[0].otp);
             const generatedOtp = docs[0].otp;
             
             const validUser = await bcrypt.compare(inputOtp, generatedOtp);
@@ -154,8 +153,17 @@ const verifyOtp = async (req, res) => {
                     if(error) console.log(error);
                     else console.log("Signup successful: ", newUser);
                 })
+
+                res.cookie("user_token", token, {
+                    expires: new Date(Date.now() + 172800000), //expire in 2 days
+                    httpOnly: true
+                })
+
+                return res.status(200).send({msg: "New User Added"});
             }
-            return res.status(200).send("New User Added");
+            else {
+                return res.status(400).send({msg: "Failed"})
+            }
         }
     }) 
 }
