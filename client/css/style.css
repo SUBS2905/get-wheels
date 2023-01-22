@@ -3460,10 +3460,14 @@ input[type="button"].btn-block {
   margin-right: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
-  white-space: nowrap; }
-  .navbar-brand:hover, .navbar-brand:focus {
-    text-decoration: none; }
-
+  white-space: nowrap; 
+}
+.navbar-brand:hover, .navbar-brand:focus {
+  text-decoration: none;
+}
+.navbar-brand>.logo{
+  width: 30%;
+}
 .navbar-nav {
   display: -webkit-box;
   display: -ms-flexbox;
