@@ -105,6 +105,15 @@ section .content .form .input input {
 #input-otp {
   display: none;
 }
+.otp-sent{
+  padding: 3px 0;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2691d9;
+  background-color: aliceblue;
+  border-radius: 5px;
+  display: none;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
