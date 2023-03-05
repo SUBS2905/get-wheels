@@ -9155,13 +9155,13 @@ textarea.form-control {
 
 .ftco-footer {
   font-size: 16px;
-  background: darkslategray;
+  background: black;
   padding: 7em 0; }
   .ftco-footer .logo {
     text-transform: uppercase;
     font-weight: 700;
     color: #fff; 
-    width: 60%;
+    width: 80%;
    }
     .ftco-footer .logo span {
       color: #01d28e; }
