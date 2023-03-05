@@ -5,12 +5,12 @@ const otpGenerator = require("otp-generator");
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = "some super secret key here...";
 
-// NOTE: 3 min se pahele retry otp req kiya that has to be handled....
+const { sendSMS } = require("./smsController");
 
 const signIn = async (req, res)=>{
-    const number = req.body.contactNumber;
+    const Email = req.body.email;
 
-    User.find({contactNumber: number}, async function (err, docs) {
+    User.find({email: Email}, async function (err, docs) {
         if (docs.length !== 0) {
 
             // generate otp for new user
@@ -22,17 +22,20 @@ const signIn = async (req, res)=>{
             });
         
             const otp = {
-                number: number,
+                email: Email,
                 otp: OTP,
             };
 
             console.log("Generated otp for signin: ", otp);
             //encrypting the otp and then saving to Otp_table
+            sendSMS(Email, otp.otp);
+
+
             const salt = await bcrypt.genSalt(10);
             otp.otp = await bcrypt.hash(otp.otp, salt);
         
             const newUserLogin = new OtpAuth ({
-                mobileNumber: otp.number,
+                email: otp.email,
                 otp: otp.otp
             });
 
@@ -51,10 +54,10 @@ const signIn = async (req, res)=>{
 
 
 const signUp = async (req, res)=>{
-    const number = req.body.contactNumber;
+    const Email = req.body.email;
 
     //validating whether user already exists or not
-    User.find({contactNumber: number}, async function (err, docs) {
+    User.find({email: Email}, async function (err, docs) {
         if (docs.length !== 0) {
             return res.status(400).send({msg: "user already registered"});
         }
@@ -68,18 +71,19 @@ const signUp = async (req, res)=>{
             });
         
             const otp = {
-                number: number,
+                email: Email,
                 otp: OTP,
             };
             console.log("Before hashing: ", otp);
-
+            
+            sendSMS(Email, otp.otp);
             
             //encrypting the otp and then saving to Otp_table
             const salt = await bcrypt.genSalt(10);
             otp.otp = await bcrypt.hash(otp.otp, salt);
         
             const newUserLogin = new OtpAuth ({
-                mobileNumber: otp.number,
+                email: otp.email,
                 otp: otp.otp
             });
         
@@ -94,10 +98,10 @@ const signUp = async (req, res)=>{
 }
 
 const verifyLogin = async (req, res) => {
-    const number = req.body.contactNumber;
+    const Email = req.body.email;
     const inputOtp = req.body.otp;
 
-    OtpAuth.find({mobileNumber: number}, async function (err, docs) {
+    OtpAuth.find({email: Email}, async function (err, docs) {
         if(docs.length === 0) {
             return res.status(400).send( {msg: "You used an expired OTP"});
         }
@@ -106,8 +110,8 @@ const verifyLogin = async (req, res) => {
             
             const validUser = await bcrypt.compare(inputOtp, generatedOtp);
 
-            if(number === docs[0].mobileNumber && validUser) {
-                User.find({contactNumber: number}, async function (err, user) {
+            if(Email === docs[0].email && validUser) {
+                User.find({email: Email}, async function (err, user) {
                     res.cookie("user_token", user[0].user_token, {
                         expires: new Date(Date.now() + 172800000), //expire in 2 days
                         httpOnly: true
@@ -124,10 +128,10 @@ const verifyLogin = async (req, res) => {
 
 
 const verifyOtp = async (req, res) => {
-    const number = req.body.contactNumber;
+    const Email = req.body.email;
     const inputOtp = req.body.otp;
 
-    OtpAuth.find({mobileNumber: number}, async function (err, docs) {
+    OtpAuth.find({email: Email}, async function (err, docs) {
         if(docs.length === 0) {
             return res.status(400).send("You used an expired OTP!");
         }
@@ -136,17 +140,17 @@ const verifyOtp = async (req, res) => {
             
             const validUser = await bcrypt.compare(inputOtp, generatedOtp);
 
-            if(number === docs[0].mobileNumber && validUser) {
+            if(Email === docs[0].email && validUser) {
                 const secret = JWT_SECRET;
                 const payload = {
-                  number: req.body.number,
+                  email: req.body.email,
                 };
                 const token = jwt.sign(payload, secret);
 
                 //saving new user
                 const newUser = new User ({
                     user_token: token,
-                    contactNumber: number
+                    email: Email
                 });
             
                 newUser.save((error, success) => {
