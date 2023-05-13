@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>get-wheels</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+
+    <link rel="stylesheet" href="css/aos.css" />
+
+    <link rel="stylesheet" href="css/ionicons.min.css" />
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="css/jquery.timepicker.css" />
+
+    <link rel="stylesheet" href="css/flaticon.css" />
+    <link rel="stylesheet" href="css/icomoon.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/addPost.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+      id="ftco-navbar"
+    >
+      <div class="container">
+        <a
+          href="addPost.html"
+          class="nav-link"
+          style="position: fixed; bottom: 20px; right: 20px"
+        >
+          <img width="75px" src="images/icon-plus.png" alt="" />
+        </a>
+        <a class="navbar-brand" href="index.html"
+          ><img class="logo" src="images/logo.png" alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#ftco-nav"
+          aria-controls="ftco-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Services</a>
+            </li>
+            <li class="nav-item">
+              <a href="car.html" class="nav-link">Vehicles</a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END nav -->
+
+    <section
+      class="hero-wrap hero-wrap-2 js-fullheight"
+      style="background-image: url('images/6.jpeg')"
+      data-stellar-background-ratio="0.5"
+    >
+      <div class="overlay"></div>
+      <div class="container">
+        <div
+          class="row no-gutters slider-text js-fullheight align-items-end justify-content-start"
+        >
+          <div class="col-md-9 ftco-animate pb-5">
+            <p class="breadcrumbs">
+              <span class="mr-2"
+                ><a href="index.html"
+                  >Home <i class="ion-ios-arrow-forward"></i></a
+              ></span>
+              <span>Add Post<i class="ion-ios-arrow-forward"></i></span>
+            </p>
+            <h1 class="mb-3 bread">Post your Ad</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section contact-section">
+      <div class="form-container">
+        <div class="left">
+          <h4>Vehicle Details</h4>
+          <form action="">
+            <div class="form-field">
+              <label>Vehicle Name</label>
+              <input type="text" />
+            </div>
+            <div class="form-field">
+              <label>Owner Name</label>
+              <input type="text" />
+            </div>
+            <div class="form-field">
+              <label>City</label>
+              <input type="text" />
+            </div>
+            <div class="form-field">
+              <label>Contact Number</label>
+              <input type="tel" />
+            </div>
+            <div class="form-field">
+              <label>Price</label>
+              <input type="number" />
+            </div>
+            <div class="form-field">
+              <label>Address</label>
+              <textarea name="owner-address" cols="100" rows="2"></textarea>
+            </div>
+            <div class="form-field">
+              <label>Vehicle Description</label>
+              <textarea name="vehicle-desc" cols="100" rows="2"></textarea>
+            </div>
+            <table>
+              <tr>
+                <td><label>Brand</label></td>
+                <td><label>First Registration</label></td>
+                <td><label>KM</label></td>
+              </tr>
+              <tr>
+                <td><input type="text" /></td>
+                <td><input type="date" /></td>
+                <td><input type="number" /></td>
+              </tr>
+              <tr>
+                <td><label>Model</label></td>
+                <td><label>Engine</label></td>
+                <td><label>HP</label></td>
+              </tr>
+              <tr>
+                <td><input type="text" /></td>
+                <td><input type="text" /></td>
+                <td><input type="number" /></td>
+              </tr>
+              <tr>
+                <td><label>Transmission</label></td>
+                <td><label>Fuel type</label></td>
+                <td><label>Brakes</label></td>
+              </tr>
+              <tr>
+                <td>
+                  <select name="transmission">
+                    <option value="manual">Manual</option>
+                    <option value="auto">Automatic</option>
+                  </select>
+                </td>
+                <td>
+                  <select name="fuel">
+                    <option value="petrol">Petrol</option>
+                    <option value="diesel">Diesel</option>
+                    <option value="electric">Electric</option>
+                  </select>
+                </td>
+                <td>
+                  <select name="brake">
+                    <option value="disc">Disc</option>
+                    <option value="drum">Drum</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+        <div class="right">
+          <h4>Image Upload</h4>
+          <div class="image-input-container">
+            <div class="file-upload">
+              <div class="image-upload-wrap">
+                <input
+                  class="file-upload-input image-input-1"
+                  type="file"
+                  onchange="readURL(this, '.image-1');"
+                  accept="image/*"
+                />
+                <div class="drag-text" style="line-height: 3px">
+                  <p style="font-size: small; font-weight: 600">
+                    drop your image
+                  </p>
+                  <p style="font-size: small; font-weight: 600">or</p>
+                  <p style="font-size: small; color: #8cc5ff; font-weight: 600">
+                    click to browse
+                  </p>
+                </div>
+              </div>
+              <div class="file-upload-content">
+                <img
+                  class="file-upload-image image-1"
+                  src="#"
+                  alt="your image"
+                />
+                <div class="image-title-wrap">
+                  <button
+                    type="button"
+                    onclick="removeUpload('.image-1')"
+                    class="remove-image"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="file-upload">
+              <div class="image-upload-wrap">
+                <input
+                  class="file-upload-input image-input-2"
+                  type="file"
+                  onchange="readURL(this, '.image-2');"
+                  accept="image/*"
+                />
+                <div class="drag-text" style="line-height: 3px">
+                  <p style="font-size: small; font-weight: 600">
+                    drop your image
+                  </p>
+                  <p style="font-size: small; font-weight: 600">or</p>
+                  <p style="font-size: small; color: #8cc5ff; font-weight: 600">
+                    click to browse
+                  </p>
+                </div>
+              </div>
+              <div class="file-upload-content">
+                <div class="image-title-wrap">
+                  <img
+                    class="file-upload-image image-2"
+                    src="#"
+                    alt="your image"
+                  />
+                  <button
+                    type="button"
+                    onclick="removeUpload('.image-2')"
+                    class="remove-image"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="file-upload">
+              <div class="image-upload-wrap">
+                <input
+                  class="file-upload-input image-input-3"
+                  type="file"
+                  onchange="readURL(this, '.image-3');"
+                  accept="image/*"
+                />
+                <div class="drag-text" style="line-height: 3px">
+                  <p style="font-size: small; font-weight: 600">
+                    drop your image
+                  </p>
+                  <p style="font-size: small; font-weight: 600">or</p>
+                  <p style="font-size: small; color: #8cc5ff; font-weight: 600">
+                    click to browse
+                  </p>
+                </div>
+              </div>
+              <div class="file-upload-content">
+                <img
+                  class="file-upload-image image-3"
+                  src="#"
+                  alt="your image"
+                />
+                <div class="image-title-wrap">
+                  <button
+                    type="button"
+                    onclick="removeUpload('.image-3')"
+                    class="remove-image"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h4 style="margin-top: 30px">Document Upload</h4>
+          <div class="image-input-container">
+            <div class="file-upload">
+              <div class="image-upload-wrap">
+                <input
+                  class="file-upload-input image-input-1"
+                  type="file"
+                  onchange="readURL(this, '.image-1');"
+                  accept="image/*"
+                />
+                <div class="drag-text" style="line-height: 3px">
+                  <p style="font-size: small; font-weight: 600">
+                    drop your image
+                  </p>
+                  <p style="font-size: small; font-weight: 600">or</p>
+                  <p style="font-size: small; color: #8cc5ff; font-weight: 600">
+                    click to browse
+                  </p>
+                </div>
+              </div>
+              <p style="font-size: small; text-align: center; font-weight: 600">
+                Aadhar Card
+              </p>
+              <div class="file-upload-content">
+                <img
+                  class="file-upload-image image-1"
+                  src="#"
+                  alt="your image"
+                />
+                <div class="image-title-wrap">
+                  <button
+                    type="button"
+                    onclick="removeUpload('.image-1')"
+                    class="remove-image"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="file-upload">
+              <div class="image-upload-wrap">
+                <input
+                  class="file-upload-input image-input-2"
+                  type="file"
+                  onchange="readURL(this, '.image-2');"
+                  accept="image/*"
+                />
+                <div class="drag-text" style="line-height: 3px">
+                  <p style="font-size: small; font-weight: 600">
+                    drop your image
+                  </p>
+                  <p style="font-size: small; font-weight: 600">or</p>
+                  <p style="font-size: small; color: #8cc5ff; font-weight: 600">
+                    click to browse
+                  </p>
+                </div>
+              </div>
+              <p style="font-size: small; text-align: center; font-weight: 600">
+                Driving License
+              </p>
+              <div class="file-upload-content">
+                <div class="image-title-wrap">
+                  <img
+                    class="file-upload-image image-2"
+                    src="#"
+                    alt="your image"
+                  />
+                  <button
+                    type="button"
+                    onclick="removeUpload('.image-2')"
+                    class="remove-image"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="file-upload">
+              <div class="image-upload-wrap">
+                <input
+                  class="file-upload-input image-input-3"
+                  type="file"
+                  onchange="readURL(this, '.image-3');"
+                  accept="image/*"
+                />
+                <div class="drag-text" style="line-height: 3px">
+                  <p style="font-size: small; font-weight: 600">
+                    drop your image
+                  </p>
+                  <p style="font-size: small; font-weight: 600">or</p>
+                  <p style="font-size: small; color: #8cc5ff; font-weight: 600">
+                    click to browse
+                  </p>
+                </div>
+              </div>
+              <p style="font-size: small; text-align: center; font-weight: 600">
+                Registration Certificate
+              </p>
+              <div class="file-upload-content">
+                <img
+                  class="file-upload-image image-3"
+                  src="#"
+                  alt="your image"
+                />
+                <div class="image-title-wrap">
+                  <button
+                    type="button"
+                    onclick="removeUpload('.image-3')"
+                    class="remove-image"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="owner-comment">
+            <p style="color: #000">Owner's Comments</p>
+            <textarea name="owner-comment" id="" cols="50" rows="8"></textarea>
+            <button type="submit">POST AD</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="ftco-footer ftco-bg-dark ftco-section"
+      style="padding-bottom: 0px; padding-top: 40px"
+    >
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md" style="margin-left: 0px; margin-top: 0px">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2"></h2>
+              <img class="logo" src="images/logo2.png" alt="" />
+              <p>
+                Rent out your unused vehicle and earn benefits, or rent a
+                vehicle affordably on our hassle-free website. Benefit both as a
+                vehicle owner or customer.
+              </p>
+            </div>
+          </div>
+          <div class="col-md" style="margin-top: 40px">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2 mx-2 align-items-center">
+                Information
+              </h2>
+              <ul class="list-unstyled">
+                <li><a href="#about" class="py-2 d-block">About</a></li>
+                <li><a href="#services" class="py-2 d-block">Services</a></li>
+                <li>
+                  <a href="#" class="py-2 d-block">Term and Conditions</a>
+                </li>
+                <li>
+                  <a href="#" class="py-2 d-block"
+                    >Privacy &amp; Cookies Policy</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md" style="margin-top: 40px">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Customer Support</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">FAQ</a></li>
+                <li><a href="#" class="py-2 d-block">Payment Option</a></li>
+                <li><a href="#" class="py-2 d-block">How it works</a></li>
+                <li>
+                  <a href="contact.html" class="py-2 d-block">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md" style="margin-top: 40px">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Have a Questions?</h2>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li>
+                    <a href="#"
+                      ><span class="icon icon-map-marker"></span
+                      ><span class="text">
+                        VIT Bhopal University, Bhopal-Indore Highway
+                        Kothrikalan, Sehore Madhya Pradesh - 466114</span
+                      ></a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="icon icon-phone"></span
+                      ><span class="text">+91/0 756 0254 500/501/502</span></a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="icon icon-envelope"></span
+                      ><span class="text">info@vitbhopal.ac.in</span></a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              All rights reserved
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen">
+      <svg class="circular" width="48px" height="48px">
+        <circle
+          class="path-bg"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke="#eeeeee"
+        />
+        <circle
+          class="path"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          stroke="#F96D00"
+        />
+      </svg>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/addPost.js"></script>
+  </body>
+</html>

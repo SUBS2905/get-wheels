@@ -1,0 +1,145 @@
+.form-container{
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+.left{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    padding-left: 45px;
+    border: 2px solid lightslategray;
+    border-radius: 5px;
+}
+input, textarea, select{
+    border-radius: 7px;
+    border: 2px solid gray;
+    padding: 2px 5px;
+}
+.form-field{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+.left input,.left select, .left textarea{
+    width: 90%;
+}
+.right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    padding-left: 50px;
+    border: 2px solid lightslategray;
+    border-radius: 5px;
+}
+/* File Upload */
+.image-input-container{
+  display: flex;
+}
+.file-upload {
+    background-color: #ffffff;
+    width: 200px;
+    padding: 20px;
+  }
+  
+  .file-upload-btn:active {
+    border: 0;
+    transition: all .2s ease;
+  } */
+  
+  .file-upload-content {
+    display: none;
+    text-align: center;
+  }
+  
+  .file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .image-upload-wrap {
+    margin-top: 20px;
+    padding: 45px 10px;
+    border-radius: 5px;
+    border: 1px dashed gray;
+    position: relative;
+  }
+  
+  .image-dropping,
+  .image-upload-wrap:hover {
+    background-color: rgba(85, 81, 81, 0.1);
+    border: 1px dashed #ffffff;
+  }
+  
+  .image-title-wrap {
+    padding: 0 15px 15px 15px;
+    color: #222;
+  }
+  
+  .drag-text {
+    text-align: center;
+  }
+  
+  .drag-text h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #15824B;
+    padding: 60px 0;
+  }
+  
+  .file-upload-image {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .remove-image {
+    width: 130px;
+    margin-left: 25px;
+    color: #fff;
+    background: #cd4535;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  
+  .remove-image:hover {
+    background: #c13b2a;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+  
+  .remove-image:active {
+    border: 0;
+    transition: all .2s ease;
+  }
+  .owner-comment{
+    display: flex;
+    flex-direction: column;
+  }
+  .owner-comment>:nth-child(2){
+    width: 93%;
+  }
+  button[type="submit"]{
+    width: 30%;
+    height: 15%;
+    margin-top: 30px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 30%;
+  }
