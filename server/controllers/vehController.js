@@ -1,5 +1,5 @@
 const Vehicle = require("../models/vehicle");
-const Deal = require('../models/vehicleDeal');
+// const Deal = require('../models/vehicleDeal');
 
 const addVeh = (req, res) => {
     const { vehicleName,description, address, location, brand, price } = req.body;
