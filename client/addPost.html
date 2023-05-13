@@ -109,36 +109,41 @@
 
     <section class="ftco-section contact-section">
       <div class="form-container">
-        <div class="left">
-          <h4>Vehicle Details</h4>
-          <form action="">
+        <form id="vehicleForm">
+          <div class="left">
+            <h4>Vehicle Details</h4>
             <div class="form-field">
               <label>Vehicle Name</label>
-              <input type="text" />
+              <input type="text" name="vehicleName" id="vehicleName" />
             </div>
             <div class="form-field">
               <label>Owner Name</label>
-              <input type="text" />
+              <input type="text" name="ownerName" id="ownerName" />
             </div>
             <div class="form-field">
               <label>City</label>
-              <input type="text" />
+              <input type="text" name="city" id="city" />
             </div>
             <div class="form-field">
               <label>Contact Number</label>
-              <input type="tel" />
+              <input type="tel" name="contactNumber" id="contactNumber" />
             </div>
             <div class="form-field">
               <label>Price</label>
-              <input type="number" />
+              <input type="number" name="price" id="price" />
             </div>
             <div class="form-field">
               <label>Address</label>
-              <textarea name="owner-address" cols="100" rows="2"></textarea>
+              <textarea
+                cols="100"
+                rows="2"
+                name="address"
+                id="address"
+              ></textarea>
             </div>
             <div class="form-field">
               <label>Vehicle Description</label>
-              <textarea name="vehicle-desc" cols="100" rows="2"></textarea>
+              <textarea name="description" id="description" cols="100" rows="2"></textarea>
             </div>
             <table>
               <tr>
@@ -147,9 +152,15 @@
                 <td><label>KM</label></td>
               </tr>
               <tr>
-                <td><input type="text" /></td>
-                <td><input type="date" /></td>
-                <td><input type="number" /></td>
+                <td><input type="text" name="brand" id="brand" /></td>
+                <td>
+                  <input
+                    type="date"
+                    name="registrationDate"
+                    id="registrationDate"
+                  />
+                </td>
+                <td><input type="number" name="km" id="km" /></td>
               </tr>
               <tr>
                 <td><label>Model</label></td>
@@ -157,9 +168,9 @@
                 <td><label>HP</label></td>
               </tr>
               <tr>
-                <td><input type="text" /></td>
-                <td><input type="text" /></td>
-                <td><input type="number" /></td>
+                <td><input type="text" name="model" id="model" /></td>
+                <td><input type="text" name="engine" id="engine" /></td>
+                <td><input type="number" name="hp" id="hp" /></td>
               </tr>
               <tr>
                 <td><label>Transmission</label></td>
@@ -168,260 +179,283 @@
               </tr>
               <tr>
                 <td>
-                  <select name="transmission">
+                  <select name="transmission" id="transmission">
                     <option value="manual">Manual</option>
                     <option value="auto">Automatic</option>
                   </select>
                 </td>
                 <td>
-                  <select name="fuel">
+                  <select name="fuel" id="fuel">
                     <option value="petrol">Petrol</option>
                     <option value="diesel">Diesel</option>
                     <option value="electric">Electric</option>
                   </select>
                 </td>
                 <td>
-                  <select name="brake">
+                  <select name="brakes" id="brakes">
                     <option value="disc">Disc</option>
                     <option value="drum">Drum</option>
                   </select>
                 </td>
               </tr>
             </table>
-          </form>
-        </div>
-        <div class="right">
-          <h4>Image Upload</h4>
-          <div class="image-input-container">
-            <div class="file-upload">
-              <div class="image-upload-wrap">
-                <input
-                  class="file-upload-input image-input-1"
-                  type="file"
-                  onchange="readURL(this, '.image-1');"
-                  accept="image/*"
-                />
-                <div class="drag-text" style="line-height: 3px">
-                  <p style="font-size: small; font-weight: 600">
-                    drop your image
-                  </p>
-                  <p style="font-size: small; font-weight: 600">or</p>
-                  <p style="font-size: small; color: #8cc5ff; font-weight: 600">
-                    click to browse
-                  </p>
+          </div>
+          <div class="right">
+            <h4>Image Upload</h4>
+            <div class="image-input-container">
+              <div class="file-upload">
+                <div class="image-upload-wrap">
+                  <input
+                    class="file-upload-input image-input-1"
+                    type="file"
+                    onchange="readURL(this, '.image-1');"
+                    accept="image/*"
+                  />
+                  <div class="drag-text" style="line-height: 3px">
+                    <p style="font-size: small; font-weight: 600">
+                      drop your image
+                    </p>
+                    <p style="font-size: small; font-weight: 600">or</p>
+                    <p
+                      style="font-size: small; color: #8cc5ff; font-weight: 600"
+                    >
+                      click to browse
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="file-upload-content">
-                <img
-                  class="file-upload-image image-1"
-                  src="#"
-                  alt="your image"
-                />
-                <div class="image-title-wrap">
-                  <button
-                    type="button"
-                    onclick="removeUpload('.image-1')"
-                    class="remove-image"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="file-upload">
-              <div class="image-upload-wrap">
-                <input
-                  class="file-upload-input image-input-2"
-                  type="file"
-                  onchange="readURL(this, '.image-2');"
-                  accept="image/*"
-                />
-                <div class="drag-text" style="line-height: 3px">
-                  <p style="font-size: small; font-weight: 600">
-                    drop your image
-                  </p>
-                  <p style="font-size: small; font-weight: 600">or</p>
-                  <p style="font-size: small; color: #8cc5ff; font-weight: 600">
-                    click to browse
-                  </p>
-                </div>
-              </div>
-              <div class="file-upload-content">
-                <div class="image-title-wrap">
+                <div class="file-upload-content">
                   <img
-                    class="file-upload-image image-2"
+                    class="file-upload-image image-1"
                     src="#"
                     alt="your image"
                   />
-                  <button
-                    type="button"
-                    onclick="removeUpload('.image-2')"
-                    class="remove-image"
-                  >
-                    Remove
-                  </button>
+                  <div class="image-title-wrap">
+                    <button
+                      type="button"
+                      onclick="removeUpload('.image-1')"
+                      class="remove-image"
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="file-upload">
-              <div class="image-upload-wrap">
-                <input
-                  class="file-upload-input image-input-3"
-                  type="file"
-                  onchange="readURL(this, '.image-3');"
-                  accept="image/*"
-                />
-                <div class="drag-text" style="line-height: 3px">
-                  <p style="font-size: small; font-weight: 600">
-                    drop your image
-                  </p>
-                  <p style="font-size: small; font-weight: 600">or</p>
-                  <p style="font-size: small; color: #8cc5ff; font-weight: 600">
-                    click to browse
-                  </p>
+              <div class="file-upload">
+                <div class="image-upload-wrap">
+                  <input
+                    class="file-upload-input image-input-2"
+                    type="file"
+                    onchange="readURL(this, '.image-2');"
+                    accept="image/*"
+                  />
+                  <div class="drag-text" style="line-height: 3px">
+                    <p style="font-size: small; font-weight: 600">
+                      drop your image
+                    </p>
+                    <p style="font-size: small; font-weight: 600">or</p>
+                    <p
+                      style="font-size: small; color: #8cc5ff; font-weight: 600"
+                    >
+                      click to browse
+                    </p>
+                  </div>
+                </div>
+                <div class="file-upload-content">
+                  <div class="image-title-wrap">
+                    <img
+                      class="file-upload-image image-2"
+                      src="#"
+                      alt="your image"
+                    />
+                    <button
+                      type="button"
+                      onclick="removeUpload('.image-2')"
+                      class="remove-image"
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div class="file-upload-content">
-                <img
-                  class="file-upload-image image-3"
-                  src="#"
-                  alt="your image"
-                />
-                <div class="image-title-wrap">
-                  <button
-                    type="button"
-                    onclick="removeUpload('.image-3')"
-                    class="remove-image"
-                  >
-                    Remove
-                  </button>
+              <div class="file-upload">
+                <div class="image-upload-wrap">
+                  <input
+                    class="file-upload-input image-input-3"
+                    type="file"
+                    onchange="readURL(this, '.image-3');"
+                    accept="image/*"
+                  />
+                  <div class="drag-text" style="line-height: 3px">
+                    <p style="font-size: small; font-weight: 600">
+                      drop your image
+                    </p>
+                    <p style="font-size: small; font-weight: 600">or</p>
+                    <p
+                      style="font-size: small; color: #8cc5ff; font-weight: 600"
+                    >
+                      click to browse
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <h4 style="margin-top: 30px">Document Upload</h4>
-          <div class="image-input-container">
-            <div class="file-upload">
-              <div class="image-upload-wrap">
-                <input
-                  class="file-upload-input image-input-1"
-                  type="file"
-                  onchange="readURL(this, '.image-1');"
-                  accept="image/*"
-                />
-                <div class="drag-text" style="line-height: 3px">
-                  <p style="font-size: small; font-weight: 600">
-                    drop your image
-                  </p>
-                  <p style="font-size: small; font-weight: 600">or</p>
-                  <p style="font-size: small; color: #8cc5ff; font-weight: 600">
-                    click to browse
-                  </p>
-                </div>
-              </div>
-              <p style="font-size: small; text-align: center; font-weight: 600">
-                Aadhar Card
-              </p>
-              <div class="file-upload-content">
-                <img
-                  class="file-upload-image image-1"
-                  src="#"
-                  alt="your image"
-                />
-                <div class="image-title-wrap">
-                  <button
-                    type="button"
-                    onclick="removeUpload('.image-1')"
-                    class="remove-image"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="file-upload">
-              <div class="image-upload-wrap">
-                <input
-                  class="file-upload-input image-input-2"
-                  type="file"
-                  onchange="readURL(this, '.image-2');"
-                  accept="image/*"
-                />
-                <div class="drag-text" style="line-height: 3px">
-                  <p style="font-size: small; font-weight: 600">
-                    drop your image
-                  </p>
-                  <p style="font-size: small; font-weight: 600">or</p>
-                  <p style="font-size: small; color: #8cc5ff; font-weight: 600">
-                    click to browse
-                  </p>
-                </div>
-              </div>
-              <p style="font-size: small; text-align: center; font-weight: 600">
-                Driving License
-              </p>
-              <div class="file-upload-content">
-                <div class="image-title-wrap">
+                <div class="file-upload-content">
                   <img
-                    class="file-upload-image image-2"
+                    class="file-upload-image image-3"
                     src="#"
                     alt="your image"
                   />
-                  <button
-                    type="button"
-                    onclick="removeUpload('.image-2')"
-                    class="remove-image"
-                  >
-                    Remove
-                  </button>
+                  <div class="image-title-wrap">
+                    <button
+                      type="button"
+                      onclick="removeUpload('.image-3')"
+                      class="remove-image"
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="file-upload">
-              <div class="image-upload-wrap">
-                <input
-                  class="file-upload-input image-input-3"
-                  type="file"
-                  onchange="readURL(this, '.image-3');"
-                  accept="image/*"
-                />
-                <div class="drag-text" style="line-height: 3px">
-                  <p style="font-size: small; font-weight: 600">
-                    drop your image
-                  </p>
-                  <p style="font-size: small; font-weight: 600">or</p>
-                  <p style="font-size: small; color: #8cc5ff; font-weight: 600">
-                    click to browse
-                  </p>
+            <h4 style="margin-top: 30px">Document Upload</h4>
+            <div class="image-input-container">
+              <div class="file-upload">
+                <div class="image-upload-wrap">
+                  <input
+                    class="file-upload-input image-input-1"
+                    type="file"
+                    onchange="readURL(this, '.image-1');"
+                    accept="image/*"
+                  />
+                  <div class="drag-text" style="line-height: 3px">
+                    <p style="font-size: small; font-weight: 600">
+                      drop your image
+                    </p>
+                    <p style="font-size: small; font-weight: 600">or</p>
+                    <p
+                      style="font-size: small; color: #8cc5ff; font-weight: 600"
+                    >
+                      click to browse
+                    </p>
+                  </div>
+                </div>
+                <p
+                  style="font-size: small; text-align: center; font-weight: 600"
+                >
+                  Aadhar Card
+                </p>
+                <div class="file-upload-content">
+                  <img
+                    class="file-upload-image image-1"
+                    src="#"
+                    alt="your image"
+                  />
+                  <div class="image-title-wrap">
+                    <button
+                      type="button"
+                      onclick="removeUpload('.image-1')"
+                      class="remove-image"
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
               </div>
-              <p style="font-size: small; text-align: center; font-weight: 600">
-                Registration Certificate
-              </p>
-              <div class="file-upload-content">
-                <img
-                  class="file-upload-image image-3"
-                  src="#"
-                  alt="your image"
-                />
-                <div class="image-title-wrap">
-                  <button
-                    type="button"
-                    onclick="removeUpload('.image-3')"
-                    class="remove-image"
-                  >
-                    Remove
-                  </button>
+              <div class="file-upload">
+                <div class="image-upload-wrap">
+                  <input
+                    class="file-upload-input image-input-2"
+                    type="file"
+                    onchange="readURL(this, '.image-2');"
+                    accept="image/*"
+                  />
+                  <div class="drag-text" style="line-height: 3px">
+                    <p style="font-size: small; font-weight: 600">
+                      drop your image
+                    </p>
+                    <p style="font-size: small; font-weight: 600">or</p>
+                    <p
+                      style="font-size: small; color: #8cc5ff; font-weight: 600"
+                    >
+                      click to browse
+                    </p>
+                  </div>
+                </div>
+                <p
+                  style="font-size: small; text-align: center; font-weight: 600"
+                >
+                  Driving License
+                </p>
+                <div class="file-upload-content">
+                  <div class="image-title-wrap">
+                    <img
+                      class="file-upload-image image-2"
+                      src="#"
+                      alt="your image"
+                    />
+                    <button
+                      type="button"
+                      onclick="removeUpload('.image-2')"
+                      class="remove-image"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="file-upload">
+                <div class="image-upload-wrap">
+                  <input
+                    class="file-upload-input image-input-3"
+                    type="file"
+                    onchange="readURL(this, '.image-3');"
+                    accept="image/*"
+                  />
+                  <div class="drag-text" style="line-height: 3px">
+                    <p style="font-size: small; font-weight: 600">
+                      drop your image
+                    </p>
+                    <p style="font-size: small; font-weight: 600">or</p>
+                    <p
+                      style="font-size: small; color: #8cc5ff; font-weight: 600"
+                    >
+                      click to browse
+                    </p>
+                  </div>
+                </div>
+                <p
+                  style="font-size: small; text-align: center; font-weight: 600"
+                >
+                  Registration Certificate
+                </p>
+                <div class="file-upload-content">
+                  <img
+                    class="file-upload-image image-3"
+                    src="#"
+                    alt="your image"
+                  />
+                  <div class="image-title-wrap">
+                    <button
+                      type="button"
+                      onclick="removeUpload('.image-3')"
+                      class="remove-image"
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="owner-comment">
+              <p style="color: #000">Owner's Comments</p>
+              <textarea
+                name="comment"
+                id="comment"
+                cols="50"
+                rows="8"
+              ></textarea>
+              <button type="submit">POST AD</button>
+            </div>
           </div>
-          <div class="owner-comment">
-            <p style="color: #000">Owner's Comments</p>
-            <textarea name="owner-comment" id="" cols="50" rows="8"></textarea>
-            <button type="submit">POST AD</button>
-          </div>
-        </div>
+        </form>
       </div>
     </section>
 
@@ -562,5 +596,6 @@
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
     <script src="js/addPost.js"></script>
+    <script src="js/addPostCalls.js"></script>
   </body>
 </html>
