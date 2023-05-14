@@ -98,10 +98,16 @@
 		                <input type="range" name="price-range" class="form-control" min="5000" max="50000" value="5000" step="5000">
 		              </div>
 			            <div class="form-group">
-			              <input type="submit" value="Find your vehicle" class="btn btn-secondary py-3 px-4">
+			              <input id="filterform" type="submit" value="Find your vehicle" class="btn btn-secondary py-3 px-4">
 			            </div>
+						  
 			    			</form>
 	  					</div>
+						  <div id="error-dialog" style="display: none;">
+							<div id="error-message" class="error-message">
+							  No vehicle available
+							</div>
+						  </div>
 	  					<div class="col-md-8 d-flex align-items-center">
 	  						<div class="services-wrap rounded-right w-100">
 	  							<h3 class="heading-section mb-4">Better Way to Rent Your Perfect Vehicles</h3>
@@ -411,6 +417,7 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="js/extra.js"></script>
+  
     
   </body>
 </html>
