@@ -1,14 +1,33 @@
 const mongoose = require('mongoose');
 
 const vehicleSchema = new mongoose.Schema({
+    vehicleId:{
+        type:String
+    },
     vehicleName: {
         type: String,
         required: true,
         trim: true,
         min: 2, max: 50
     },
-    description: {
+    ownerName: {
         type: String,
+        required: true,
+        trim: true,
+        min: 2, max: 50
+    },
+    city: {
+        type: String,
+        required: true,
+    },
+    contactNumber: {
+        type: String,
+        required: true,
+        trim: true,
+        min: 10, max: 12
+    },
+    price: {
+        type: Number,
         required: true
     },
     address: {
@@ -17,31 +36,53 @@ const vehicleSchema = new mongoose.Schema({
         trim: true,
         max: 70
     },
-    location: {
+    description: {
         type: String,
-        required: true
+        required: true,
+        trim: true,
+        min: 2, max: 50
     },
     brand: {
         type: String,
         required: true
     },
-    price: {
+    registrationDate: {
+        type: String,
+        required: true,
+    },
+    km: {
         type: Number,
     },
-    vehiclePictures: [
-        { img: { type: String } }
-    ],
-    reviews: [
-        {
-            userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-            review: String
-        }
-    ],
-    ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    ownerInfo: {
-        ownerName: String,
-        contactNumber: String
-    }
+    model: {
+        type: String,
+        required: true,
+    },
+    engine: {
+        type: String,
+        required: true,
+    },
+    hp: {
+        type: String,
+        required: true,
+    },
+    transmission: {
+        type: String,
+        required: true,
+    },
+    fuel: {
+        type: String,
+        required: true,
+    },
+    brakes: {
+        type: String,
+        required: true,
+    },
+    comment: {
+        type: String,
+        required: true,
+    },
+    
+    
 }, { timestamps: true });
 
 module.exports = mongoose.model('Vehicle', vehicleSchema);
