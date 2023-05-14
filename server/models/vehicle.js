@@ -16,6 +16,10 @@ const vehicleSchema = new mongoose.Schema({
         trim: true,
         min: 2, max: 50
     },
+    ownerEmail: {
+        type: String,
+        require: true
+    },
     city: {
         type: String,
         required: true,
