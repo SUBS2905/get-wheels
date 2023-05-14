@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 
 const userRouter = require('./routes/authRoutes')
 const sessionRouter = require('./routes/sessionRoutes')
-const vehicleRouter = require('./routes/vehicleRoutes');
+const vehicleRouter = require('./routes/vehicleRoutes')
 const cookieParser = require('cookie-parser');
 
 const bodyParser = require('body-parser');
@@ -16,7 +16,6 @@ dotenv.config();
 //localhost url
 mongoose.connect('mongodb://127.0.0.1:27017').then(()=>{
 }).catch((err)=>{console.log(err)});
-
 
 
 require('./models/otpAuth')
