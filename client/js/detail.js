@@ -1,4 +1,3 @@
-
 const container = document.getElementById("vehicle-details");
 const urlParams = new URLSearchParams(window.location.search);
 const vehicleId = urlParams.get("vid");
@@ -76,6 +75,7 @@ fetch("http://localhost:5000/vehicle/getvehiclesbyid", {
         <li>Owner: <span>${vehicleDetails.ownerName}</span></li>
         <li>City: <span>${vehicleDetails.city}</span></li>
         <li>Mobile Number: <span>${vehicleDetails.contactNumber}</span></li>
+        <li>Email: <span>${vehicleDetails.ownerEmail}</span></li>
         </div>
 
         <div class="purchase-info">
@@ -84,11 +84,11 @@ fetch("http://localhost:5000/vehicle/getvehiclesbyid", {
         Add to Wishlist <i class="fas fa-shopping-cart"></i>
         </button>
         <button type="button" class="btn" style="background-color: red">
-        Rent Now
+        Notify me <i class="fas fa-bell"></i>
         </button>
         <a href="https://drive.google.com/file/d/1-0ryxfFb7w-Js_NN-10VntlHRJOtUZeI/view?pli=1" target="_blank">
         <button type="button" class="btn">
-            View Agreement
+            View Agreement <i class="fas fa-page"></i>
         </button>
         </a>
         </div>
