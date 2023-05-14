@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <title>get-wheels: Sign In</title>
-    <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="css/signin.css" />
   </head>
 
   <body>
@@ -18,15 +18,23 @@
       <div class="content">
         <div class="form">
           <div class="logo-container">
-            <img class="logo" src="images/logo.png" alt="" />
+            <a href="index.html"><img class="logo" src="images/logo.png" alt="" /></a>
           </div>
-          <form action="register.html">
+          <form action="">
             <div class="input">
               <span>Email Address</span>
               <input type="email" name="email" id="" />
             </div>
+            <div class="input" id="input-otp">
+              <span>Enter OTP</span>
+              <input type="number" name="otp" id="" />
+            </div>
+            <div class="otp-sent">
+              <span>Check your inbox for the OTP</span>
+            </div>
             <div class="buttons">
-              <button class="send">Sign In</button>
+              <button class="send">Send OTP</button>
+              <button class="verify">Verify</button>
             </div>
           </form>
         </div>
@@ -35,8 +43,9 @@
         <h3>WELCOME TO</h3>
         <h1>Get Wheels</h1>
         <hr />
-        <p>Sign In to Access Dashboard</p>
+        <p>Login to Access Dashboard</p>
       </div>
     </section>
+    <script src="js/signin.js"></script>
   </body>
 </html>

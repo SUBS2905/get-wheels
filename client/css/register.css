@@ -173,6 +173,12 @@ input::-webkit-inner-spin-button {
   justify-content: center;
   gap: 10px;
 }
+#signinred{
+  margin-left: 120px;
+}
+#signupred{
+  margin-left: 100px;
+}
 
 @media (max-width: 768px) {
   section .imgbox {
