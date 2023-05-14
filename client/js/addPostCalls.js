@@ -9,12 +9,12 @@ form.addEventListener("submit", (e) => {
   const ownerName = document.getElementById("ownerName").value;
   const city = document.getElementById("city").value;
   const contactNumber = document.getElementById("contactNumber").value;
+  const ownerEmail = document.getElementById("email").value;
   const price = document.getElementById("price").value;
   const address = document.getElementById("address").value;
   const description = document.getElementById("description").value;
   const brand = document.getElementById("brand").value;
   const registrationDate = document.getElementById("registrationDate").value;
-  console.log(registrationDate);
   const km = document.getElementById("km").value;
   const model = document.getElementById("model").value;
   const engine = document.getElementById("engine").value;
@@ -29,6 +29,7 @@ form.addEventListener("submit", (e) => {
     ownerName,
     city,
     contactNumber,
+    ownerEmail,
     price,
     address,
     description,
@@ -44,7 +45,7 @@ form.addEventListener("submit", (e) => {
     comment,
   };
 
-//   console.log(formData);
+  console.log(formData);
 
   fetch(url, {
     method: "POST",
