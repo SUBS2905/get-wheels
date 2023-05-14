@@ -14,6 +14,7 @@ form.addEventListener("submit", (e) => {
   const description = document.getElementById("description").value;
   const brand = document.getElementById("brand").value;
   const registrationDate = document.getElementById("registrationDate").value;
+  console.log(registrationDate);
   const km = document.getElementById("km").value;
   const model = document.getElementById("model").value;
   const engine = document.getElementById("engine").value;
