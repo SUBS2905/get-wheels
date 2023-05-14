@@ -7,6 +7,8 @@ const dotenv = require('dotenv');
 const userRouter = require('./routes/authRoutes')
 const sessionRouter = require('./routes/sessionRoutes')
 const vehicleRouter = require('./routes/vehicleRoutes')
+const notification = require('./routes/notifyRoutes')
+
 const cookieParser = require('cookie-parser');
 
 const bodyParser = require('body-parser');
@@ -33,6 +35,7 @@ app.use(cors());
 app.use('/user', userRouter);
 app.use('/session', sessionRouter);
 app.use('/vehicle', vehicleRouter);
+app.use('/', notification);
 
 app.get("/", (req, res)=>{
     res.send("Get Wheels services API.")
