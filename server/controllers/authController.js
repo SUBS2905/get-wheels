@@ -154,6 +154,14 @@ const verifyOtp = async (req, res) => {
           else console.log("Signup successful: ", newUser);
         });
 
+        OtpAuth.deleteMany({ email: Email }, async function (err) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(`OTP table for ${Email} cleared.`);
+          }
+        });
+
         return res.status(200).send({ msg: "New User Added" });
       } else {
         return res.status(400).send({ msg: "Failed" });
