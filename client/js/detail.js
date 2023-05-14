@@ -1,6 +1,29 @@
+const notify = (email) => {
+  const name = prompt("Enter your name");
+  const customerEmail = prompt("Enter your email");
+
+  // console.log(email);
+  // console.log(name);
+  // console.log(customerEmail);
+
+  fetch("http://localhost:5000/dealnotification", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, name, customerEmail }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.success == true) window.alert("We'll reach out to you soon");
+      // else window.alert("Something went wrong");
+    });
+};
+
 const container = document.getElementById("vehicle-details");
 const urlParams = new URLSearchParams(window.location.search);
 const vehicleId = urlParams.get("vid");
+
 // console.log(vehicleId);
 
 fetch("http://localhost:5000/vehicle/getvehiclesbyid", {
@@ -83,7 +106,7 @@ fetch("http://localhost:5000/vehicle/getvehiclesbyid", {
         <button type="button" class="btn">
         Add to Wishlist <i class="fas fa-shopping-cart"></i>
         </button>
-        <button type="button" class="btn" style="background-color: red">
+        <button type="button" class="btn" style="background-color: red" onclick="notify('${vehicleDetails.ownerEmail}');">
         Notify me <i class="fas fa-bell"></i>
         </button>
         <a href="https://drive.google.com/file/d/1-0ryxfFb7w-Js_NN-10VntlHRJOtUZeI/view?pli=1" target="_blank">
@@ -171,29 +194,27 @@ fetch("http://localhost:5000/vehicle/getvehiclesbyid", {
         <br /><br /><br />
     `;
   });
-  
-  
-  const imgs = document.querySelectorAll(".img-select a");
-  const imgBtns = [...imgs];
-  let imgId = 1;
-  
-  
-  imgBtns.forEach((imgItem) => {
-    imgItem.addEventListener("click", (event) => {
-      event.preventDefault();
-      imgId = imgItem.dataset.id;
-      slideImage();
-    });
+
+const imgs = document.querySelectorAll(".img-select a");
+const imgBtns = [...imgs];
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+  imgItem.addEventListener("click", (event) => {
+    event.preventDefault();
+    imgId = imgItem.dataset.id;
+    slideImage();
   });
-  
-  function slideImage() {
+});
+
+function slideImage() {
   const displayWidth = document.querySelector(
     ".img-showcase img:first-child"
-    ).clientWidth;
-    
-    document.querySelector(".img-showcase").style.transform = `translateX(${
-      -(imgId - 1) * displayWidth
-    }px)`;
-  }
-  
-  window.addEventListener("resize", slideImage);
+  ).clientWidth;
+
+  document.querySelector(".img-showcase").style.transform = `translateX(${
+    -(imgId - 1) * displayWidth
+  }px)`;
+}
+
+window.addEventListener("resize", slideImage);
