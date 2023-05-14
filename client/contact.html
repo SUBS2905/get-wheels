@@ -125,7 +125,7 @@
                   </div>
                   <p>
                     <span>Phone:</span>
-                    <a href="tel://1234567920">+91/0 756 0254 500/501/502 </a>
+                    <a href="tel://1234567920">+91 8839298745 / 7682902569</a>
                   </p>
                 </div>
               </div>
@@ -143,32 +143,36 @@
             </div>
           </div>
           <div class="col-md-8 block-9 mb-md-5">
-            <form action="#" class="bg-light p-5 contact-form">
+            <form  action="mailto:the4musketeeers@gmail.com" method="post" enctype="text/plain" class="bg-light p-5 contact-form">
               <div class="form-group">
                 <input
                   type="text"
+                  name="name"
                   class="form-control"
+                  id="contact-name"
                   placeholder="Your Name"
+                  required
                 />
               </div>
               <div class="form-group">
                 <input
                   type="text"
                   class="form-control"
+                  name="email"
                   placeholder="Your Email"
+                  id = "contact-email"
+                  required
                 />
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject" />
+                <input type="text" class="form-control" id="contact-subject" name = "subject" placeholder="Subject" required />
               </div>
               <div class="form-group">
                 <textarea
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="7"
                   class="form-control"
                   placeholder="Message"
+                  name="message" rows="10" cols="50"
+                  required
                 ></textarea>
               </div>
               <div class="form-group">
@@ -176,6 +180,7 @@
                   type="submit"
                   value="Send Message"
                   class="btn btn-primary py-3 px-5"
+                  id="contact-submit"
                 />
               </div>
             </form>
@@ -323,5 +328,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
   </body>
 </html>

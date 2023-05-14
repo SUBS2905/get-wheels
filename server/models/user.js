@@ -3,55 +3,34 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     user_token: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
-    firstName: {
+    name: {
         type: String,
-        trim: true,
-    },
-    lastName: {
-        type: String,
-        trim: true,
-    },
-    username: {
-        type: String,
-        default: 'unknown',
-        lowercase: true
-    },
-    role: {
-        type: String,
-        default: 'renter'
+        required: true
     },
     email: {
         type: String,
-        trim: true,
         unique: true,
-        lowercase: true
-    },
-    profilePicture: {
-        type: String,
-    },
-    contactNumber: {
-        type: String,
+        lowercase: true,
         required: true
-    }
+    },
 }, { timestamps: true });
 
 
-userSchema.virtual('password').set(function (password) {
-    this.hash_password = bcrypt.hashSync(password, 10);
-});
+// userSchema.virtual('password').set(function (password) {
+//     this.hash_password = bcrypt.hashSync(password, 10);
+// });
 
-userSchema.virtual('fullName').get(function () {
-    return `${this.firstName} ${this.lastName}`
-});
+// userSchema.virtual('fullName').get(function () {
+//     return `${this.firstName} ${this.lastName}`
+// });
 
-userSchema.methods = {
-    authenticate: function (password) {
-        return bcrypt.compareSync(password, this.hash_password);
-    }
-}
+// userSchema.methods = {
+//     authenticate: function (password) {
+//         return bcrypt.compareSync(password, this.hash_password);
+//     }
+// }
 
 
 module.exports = mongoose.model('User', userSchema);
