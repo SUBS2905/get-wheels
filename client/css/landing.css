@@ -57,14 +57,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 60%;
     height: 100%;
   }
   .form img {
-    width: 50%;
+    width: 60%;
   }
   section .content .form {
-    width: 50%;
+    width: 60%;
   }
   
   section .content .form h2 {
